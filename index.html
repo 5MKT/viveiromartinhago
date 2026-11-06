@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Viveiro Martinhago</title>
+<link rel="icon" type="image/png" href="v/simbolo.png">
+<meta name="description" content="Mudas clonais de café de alta produção. O maior viveiro de café clonal de Rondônia, em Cacoal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#3D452E; --bg2:#343b27; --card:#474f37; --line:rgba(255,255,255,.13);
+  --tx:#ffffff; --tx2:rgba(255,255,255,.86); --tx3:rgba(255,255,255,.68);
+  --green:#D09E43; --green-d:#b9873a; --gold:#F5D267; --lime:#7ED957; --brown:#6b3a1c; --earth:#8B6A42;
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{font:600 12px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin:0 0 14px}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;line-height:1.08;margin:0}
+h2{font-size:clamp(28px,5.4vw,44px);margin-bottom:16px;letter-spacing:-.005em}
+h2 em,h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.lead{color:var(--tx2);font-size:17px;max-width:620px;margin:0}
+section{padding:76px 0;border-top:1px solid var(--line)}
+.ic{width:20px;height:20px;flex:none}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font:600 16px/1 Inter,sans-serif;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,background .2s}
+.btn:active{transform:scale(.98)}
+.btn-green{background:var(--green);color:#2a3020}
+.btn-green:hover{background:#ddb058}
+.btn-line{border-color:rgba(255,255,255,.35);color:var(--tx);background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.06)}
+.btn-block{width:100%}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:0 0 64px;overflow:hidden;border:0}
+.hero-bg{position:absolute;inset:0;background:url(v/capa.jpg) center 40%/cover no-repeat}
+.hero-foto{display:none}
+@media(min-width:900px){
+  .hero{align-items:center;padding:90px 0}
+  .hero-bg{background:radial-gradient(ellipse at 75% 40%,rgba(126,217,87,.10),transparent 55%),linear-gradient(160deg,#465036 0%,var(--bg) 55%,#2f3523 100%)}
+  .hero-bg::after{display:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  .hero-foto{display:block;position:relative;justify-self:end;width:min(400px,100%);aspect-ratio:9/14;border-radius:26px;overflow:hidden;border:1px solid rgba(245,210,103,.45);box-shadow:0 30px 80px rgba(0,0,0,.45);background:url(v/capa.jpg) center 55%/cover}
+  .hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(43,49,32,.55))}
+  .hero-foto span{position:absolute;left:18px;bottom:16px;z-index:1;font:600 11px/1 Inter;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,49,32,.5) 0%,rgba(43,49,32,.66) 40%,rgba(43,49,32,.96) 82%,var(--bg) 100%)}
+.hero .wrap{position:relative;width:100%}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(245,210,103,.5);border-radius:999px;font:600 11px/1 Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(43,49,32,.45);backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(52px,12vw,104px);margin:22px 0 10px;letter-spacing:-.01em}
+.hero .sub{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(22px,4vw,30px);color:var(--gold);margin:0 0 18px}
+.hero p.lead{font-weight:300;font-size:clamp(16px,2.4vw,19px);color:rgba(244,239,230,.88)}
+.stars{display:flex;align-items:center;gap:10px;margin:22px 0 28px;color:var(--tx2);font-size:14px}
+.stars b{color:#f5c542;letter-spacing:2px;font-size:18px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* faixa números */
+.strip{background:var(--bg2);padding:34px 0;border-top:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;text-align:center}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat b{display:block;font-family:"Playfair Display",serif;font-size:clamp(30px,6vw,46px);color:var(--green);line-height:1}
+.stat span{font-size:13px;color:var(--tx3);display:block;margin-top:8px;line-height:1.35}
+
+/* vídeos */
+.vid{position:relative;border-radius:var(--r);overflow:hidden;background:#000;border:1px solid var(--line)}
+.vid video{width:100%;height:100%;object-fit:cover;background:#000}
+.vid.h{aspect-ratio:16/9}
+.vid.v{aspect-ratio:9/16;max-width:360px}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.55));border:0;cursor:pointer;padding:0;width:100%}
+.play i{width:74px;height:74px;border-radius:50%;background:rgba(208,158,67,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.play i svg{width:28px;height:28px;margin-left:4px;fill:#2a3020}
+.play small{position:absolute;left:16px;bottom:14px;font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.9}
+.vid.playing .play{display:none}
+.calc-box>*,.split>*,.stats>*{min-width:0}
+.cap{font-size:13px;color:var(--tx3);margin-top:12px}
+
+.split{display:grid;gap:40px;align-items:center}
+.split .vid.v{margin:0 auto}
+.points{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.points li{display:flex;gap:12px;color:var(--tx2)}
+.points li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--lime);margin-top:9px}
+
+/* serviços */
+.cards{display:grid;gap:14px;margin-top:34px}
+.card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:var(--r);padding:24px}
+.card h3{font-size:26px;margin-bottom:8px}
+.card p{margin:0;color:var(--tx2);font-size:15px}
+.tag{display:inline-block;margin-top:14px;font:600 11px/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* calculadora */
+.calc{background:linear-gradient(180deg,#465036 0%,var(--bg) 100%)}
+.calc-box{margin-top:30px;background:var(--card);border:1px solid rgba(208,158,67,.35);border-radius:22px;padding:24px;display:grid;gap:26px}
+.lbl{font:600 13px/1.3 Inter;letter-spacing:.06em;text-transform:uppercase;color:var(--tx2);margin:0 0 12px;display:block}
+.area-row{display:flex;align-items:stretch;border:1.5px solid rgba(255,255,255,.22);border-radius:14px;overflow:hidden;background:#343b27}
+.area-row:focus-within{border-color:var(--green)}
+.area-row input{flex:1;min-width:0;background:transparent;border:0;color:var(--tx);font:600 26px/1 Inter;padding:16px 18px;outline:none}
+.area-row span{display:flex;align-items:center;padding:0 18px;color:var(--tx3);font-weight:600;border-left:1px solid var(--line)}
+.esp{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.esp label{position:relative;cursor:pointer}
+.esp input{position:absolute;opacity:0;pointer-events:none}
+.esp .opt{display:block;height:100%;border:1.5px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 14px 13px;background:#343b27;transition:border-color .15s,background .15s}
+.esp .opt b{display:block;font-size:18px;font-weight:700}
+.esp .opt small{display:block;color:var(--tx3);font-size:12.5px;margin-top:3px}
+.esp .opt em{display:inline-block;font-style:normal;margin-top:8px;font:700 10px/1 Inter;letter-spacing:.12em;text-transform:uppercase;color:#2a3020;background:var(--green);padding:5px 8px;border-radius:999px}
+.esp input:checked+.opt{border-color:var(--green);background:rgba(208,158,67,.12)}
+.esp input:focus-visible+.opt{outline:2px solid var(--gold);outline-offset:2px}
+.esp .full{grid-column:1/-1}
+.outro{display:none;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:12px}
+.outro.on{display:grid}
+.outro input{width:100%;background:#343b27;border:1.5px solid rgba(255,255,255,.22);border-radius:12px;color:var(--tx);font:600 18px Inter;padding:12px 14px;outline:none}
+.outro input:focus{border-color:var(--green)}
+.outro span{color:var(--tx3);font-weight:700}
+.outro small{grid-column:1/-1;color:var(--tx3);font-size:12.5px}
+.res{border-radius:18px;background:#343b27;border:1px solid rgba(208,158,67,.4);padding:24px;text-align:center}
+.res .big{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(54px,13vw,84px);line-height:1;color:var(--green)}
+.res .unit{font-size:15px;color:var(--tx2);margin-top:6px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 4px}
+.res-grid div{background:rgba(255,255,255,.04);border-radius:12px;padding:12px 8px}
+.res-grid b{display:block;font-size:20px}
+.res-grid small{color:var(--tx3);font-size:12px}
+.dica{display:flex;gap:12px;text-align:left;background:rgba(245,210,103,.08);border:1px solid rgba(245,210,103,.3);border-radius:14px;padding:14px 16px;margin-top:16px;font-size:14.5px;color:var(--tx2)}
+.dica svg{flex:none;width:22px;height:22px;color:var(--gold);margin-top:1px}
+.dica b{color:var(--tx)}
+.res .btn{margin-top:20px}
+.res .vazio{color:var(--tx3);font-size:15px;padding:18px 0}
+.tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:14.5px}
+.tbl th,.tbl td{padding:11px 4px;border-bottom:1px solid var(--line);text-align:left}
+.tbl th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600}
+.tbl td:last-child,.tbl th:last-child{text-align:right}
+.tbl tr.rec td{color:var(--tx)}
+.tbl tr.rec td:first-child::after{content:" Recomendado";font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin-left:6px}
+.tbl tr:not(.rec) td{color:var(--tx3)}
+
+/* entrevista */
+.yt{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;text-decoration:none;margin-top:28px;transition:border-color .2s}
+.yt:hover{border-color:rgba(255,255,255,.3)}
+.yt .yi{flex:none;width:58px;height:58px;border-radius:14px;background:#e62117;display:flex;align-items:center;justify-content:center}
+.yt .yi svg{width:24px;height:24px;fill:#fff;margin-left:3px}
+.yt b{display:block;font-size:17px}
+.yt span{color:var(--tx3);font-size:14px}
+
+/* localização */
+.loc-card{margin-top:30px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.loc-vis{position:relative;height:220px;background:
+  radial-gradient(circle at 50% 55%,rgba(208,158,67,.28),transparent 46%),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 34px),#4a5338;display:flex;align-items:center;justify-content:center}
+.loc-vis svg.road{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:relative;width:64px;height:64px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--green);box-shadow:0 10px 30px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.pin::after{content:"";width:22px;height:22px;border-radius:50%;background:var(--bg)}
+.pulse{position:absolute;width:120px;height:120px;border-radius:50%;border:2px solid rgba(208,158,67,.5);animation:pl 2.4s ease-out infinite;top:50%;left:50%;margin:-48px 0 0 -60px}
+@keyframes pl{from{transform:scale(.4);opacity:1}to{transform:scale(1.4);opacity:0}}
+.loc-body{padding:24px;display:grid;gap:16px}
+.loc-body h3{font-size:28px}
+.loc-body p{margin:0;color:var(--tx2)}
+
+/* contato */
+.ctas{display:grid;gap:12px;margin-top:30px}
+.contacts{margin-top:40px;display:grid;gap:0;border-top:1px solid var(--line)}
+.ct{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.ct .ico{width:44px;height:44px;border-radius:12px;background:rgba(208,158,67,.12);color:var(--green);display:flex;align-items:center;justify-content:center;flex:none}
+.ct small{display:block;color:var(--tx3);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.ct b{font-weight:600;font-size:17px}
+footer{padding:44px 0 56px;text-align:center;border-top:1px solid var(--line)}
+footer .fn{font-family:"Playfair Display",serif;font-size:30px;font-weight:600}
+footer .flogo{width:220px;height:auto;margin:0 auto 6px;display:block}
+.logo-h1{margin:0 0 18px!important}
+.logo-h1 img{width:min(460px,86vw);height:auto;filter:drop-shadow(0 6px 24px rgba(0,0,0,.55))}
+footer .fl{margin-top:18px;color:var(--tx3);font-size:12.5px;line-height:1.7;padding:0 20px}
+footer .fc{color:var(--tx3);font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-top:6px}
+.float{position:fixed;right:16px;bottom:16px;z-index:50;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.45)}
+.float svg{width:32px;height:32px;fill:#fff}
+
+
+/* premium */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--lime)}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--green)}
+section{border-top:1px solid rgba(245,210,103,.14)}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.brand .mono{width:46px;height:46px;border-radius:50%;border:1px solid rgba(245,210,103,.6);display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:22px;color:var(--gold);background:rgba(43,49,32,.5);backdrop-filter:blur(6px)}
+/* prova */
+.prova{background:linear-gradient(180deg,var(--bg) 0%,#4a5338 100%)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(245,210,103,.25);border:1px solid rgba(245,210,103,.25);border-radius:18px;overflow:hidden;margin:26px 0}
+.kpis div{background:var(--bg2);padding:18px 10px;text-align:center}
+.kpis b{display:block;font-family:"Playfair Display",serif;font-size:clamp(30px,6vw,42px);line-height:1;color:var(--gold);font-weight:600}
+.kpis span{display:block;font-size:12.5px;color:var(--tx3);margin-top:8px;line-height:1.35}
+.quem{display:flex;align-items:center;gap:14px;padding:16px 18px;border-left:2px solid var(--green);background:rgba(255,255,255,.03);border-radius:0 12px 12px 0}
+.quem b{display:block;font-family:"Playfair Display",serif;font-size:22px;font-weight:600}
+.quem span{color:var(--tx3);font-size:14px}
+.quem b{color:var(--tx)}
+.clones{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
+.clone{position:relative;border:1px solid rgba(245,210,103,.32);border-radius:16px;padding:18px 10px 16px;text-align:center;background:linear-gradient(160deg,rgba(107,58,28,.55),rgba(107,58,28,.18))}
+.clone small{display:block;font:600 10px/1 Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--tx3)}
+.clone b{display:block;font-family:"Playfair Display",serif;font-size:clamp(34px,8vw,44px);font-weight:600;line-height:1;margin-top:8px;color:var(--gold)}
+.clones-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:20px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+.clones-cta p{margin:0;color:var(--tx2);font-size:15px;max-width:520px}
+@media(min-width:760px){.clones{grid-template-columns:repeat(9,1fr)}}
+/* credenciais */
+.cred{display:grid;gap:1px;background:rgba(245,210,103,.25);border:1px solid rgba(245,210,103,.3);border-radius:20px;overflow:hidden;margin-top:30px}
+.cred div{background:var(--bg2);padding:22px}
+.cred small{display:block;font:600 11px/1.3 Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cred b{display:block;font-size:18px;font-weight:600;line-height:1.35}
+.cred span{display:block;color:var(--tx3);font-size:14px;margin-top:4px}
+.selo{display:flex;align-items:center;gap:16px;margin-top:18px;padding:18px 20px;border-radius:var(--r);background:rgba(245,210,103,.07);border:1px solid rgba(245,210,103,.3);color:var(--tx2);font-size:15px}
+.selo svg{flex:none;width:34px;height:34px;color:var(--gold)}
+@media(min-width:760px){.cred{grid-template-columns:repeat(3,1fr)}}
+/* depoimentos */
+.deps{display:grid;gap:30px;margin-top:34px}
+.dep .vid.v{margin:0 auto}
+.dep-name{max-width:360px;margin:14px auto 0;display:flex;align-items:center;gap:12px}
+.dep-name .q{font-family:"Playfair Display",serif;font-size:54px;line-height:.6;color:var(--green);height:26px}
+.dep-name b{display:block;font-family:"Playfair Display",serif;font-size:24px;font-weight:600}
+.dep-name span{color:var(--tx3);font-size:13.5px}
+.dep-name b{color:var(--tx)}
+.feira{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 16px;border:1px solid rgba(245,210,103,.35);border-radius:999px;font-size:13.5px;color:var(--tx2);background:rgba(245,210,103,.06)}
+.feira b{color:var(--gold)}
+@media(min-width:760px){.deps{grid-template-columns:1fr 1fr}}
+/* origem */
+.origem{background:linear-gradient(180deg,var(--bg) 0%,#343b27 100%)}
+.origem-img{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(245,210,103,.3);aspect-ratio:445/400;background:url(v/graos.jpg) center/cover}
+.origem-img::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px rgba(0,0,0,.35)}
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.pilar{text-align:center;padding:16px 6px;border-radius:14px;border:1px solid rgba(245,210,103,.28);background:rgba(255,255,255,.03)}
+.pilar svg{width:34px;height:34px;color:var(--green);margin:0 auto 10px;display:block}
+.pilar b{display:block;font:700 12px/1.3 Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+.pilar span{display:block;font-size:12.5px;color:var(--tx2);margin-top:3px}
+/* passos */
+.steps{list-style:none;padding:0;margin:34px 0 0;display:grid;gap:14px;counter-reset:st}
+.steps li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 22px 78px;counter-increment:st}
+.steps li::before{content:counter(st,decimal-leading-zero);position:absolute;left:22px;top:20px;font-family:"Playfair Display",serif;font-size:34px;line-height:1;color:var(--green);font-weight:600}
+.steps h3{font-size:22px;margin-bottom:6px}
+.steps p{margin:0;color:var(--tx2);font-size:15px}
+/* documentação */
+.docs{display:grid;gap:12px;margin-top:30px}
+.doc{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid rgba(245,210,103,.3);border-radius:var(--r);background:rgba(245,210,103,.05)}
+.doc .sig{flex:none;width:52px;height:52px;border-radius:12px;background:var(--brown);color:var(--gold);border:1px solid rgba(245,210,103,.4);display:flex;align-items:center;justify-content:center;font:700 13px/1 Inter;letter-spacing:.06em}
+.doc b{display:block;font-size:17px;margin-bottom:4px}
+.doc p{margin:0;color:var(--tx2);font-size:14.5px}
+/* faq */
+.faq{margin-top:30px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font-weight:600;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:14px;font:300 28px/1 Inter;color:var(--gold);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 20px;color:var(--tx2)}
+@media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}.docs{grid-template-columns:repeat(3,1fr)}.doc{flex-direction:column}}
+@media(min-width:760px){
+  .wrap{padding:0 36px}
+  section{padding:104px 0}
+  .split{grid-template-columns:1fr 1fr;gap:64px}
+  .split.rev>:first-child{order:2}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .calc-box{grid-template-columns:1.1fr 1fr;padding:34px;gap:34px;align-items:start}
+  .esp{grid-template-columns:1fr 1fr}
+  .ctas{grid-template-columns:repeat(3,1fr)}
+  .loc-card{display:grid;grid-template-columns:1fr 1fr}
+  .loc-vis{height:auto;min-height:280px}
+  .contacts{grid-template-columns:1fr 1fr;column-gap:40px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.9 1.9 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8M20.4 3.6C18.2 1.3 15.2 0 12 0 5.5 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.5 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.2"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></g></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 21c.5-4.5 2.5-8 7-10M9 18c6.2 0 10.5-3.3 11-12v-2h-4.5C7.5 4 5 8 5 12c0 1 0 3 2 5h2"/></symbol>
+</svg>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="Mudas de café clonal no Viveiro Martinhago"></div>
+  <div class="wrap">
+   <div class="hero-txt">
+    <h1 class="logo-h1"><img src="v/logo-claro.png" alt="Viveiro Martinhago: mudas de café clonal de alta produção, Cacoal-RO" width="1200" height="693"></h1>
+    <p class="sub">A base de uma grande lavoura.</p>
+    <p class="lead">O maior viveiro de mudas clonais de café de Rondônia. Genética de alta produção, viveiro registrado no RENASEM e envio para todo o Brasil, da pequena propriedade à grande fazenda.</p>
+    <div class="stars"><b>★★★★★</b> 5 estrelas no Google</div>
+    <div class="hero-ctas">
+      <a class="btn btn-green" href="https://wa.me/5569992220222?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido%20de%20mudas%20de%20caf%C3%A9%20clonal%20do%20Viveiro%20Martinhago." target="_blank" rel="noopener"><svg class="ic"><use href="#wa" fill="currentColor"/></svg>Fazer meu pedido</a>
+      <a class="btn btn-line" href="#calculadora">Calcular minhas mudas</a>
+    </div>
+   </div>
+    <div class="hero-foto" role="img" aria-label="Viveiro coberto com mudas de café recém-plantadas"><span>Viveiro Martinhago · Cacoal, RO</span></div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap stats">
+    <div class="stat"><b>1 milhão</b><span>de mudas produzidas nesta safra</span></div>
+    <div class="stat"><b>N.º 1</b><span>maior viveiro de café clonal do estado</span></div>
+    <div class="stat"><b>8 anos</b><span>de mercado, com clientes em todo o Brasil</span></div>
+    <div class="stat"><b>5,0</b><span>estrelas de avaliação no Google</span></div>
+  </div>
+</div>
+
+<!-- AÉREAS -->
+<section id="viveiro">
+  <div class="wrap">
+    <p class="eyebrow">Conheça o viveiro</p>
+    <h2>Estrutura de quem produz <em>em escala.</em></h2>
+    <p class="lead">Veja de cima a estrutura do Viveiro Martinhago em Cacoal: viveiros cobertos, produção organizada por clone e cuidado em cada etapa, da estaca à muda pronta para o campo.</p>
+    <div class="vid h" style="margin-top:30px">
+      <video src="v/aereas.mp4" poster="v/aereas.jpg" preload="none" playsinline></video>
+      <button class="play" aria-label="Assistir às imagens aéreas"><i><svg><use href="#play"/></svg></i><small>Imagens aéreas</small></button>
+    </div>
+  </div>
+</section>
+
+<!-- VIVEIRO INTERNO -->
+<section id="por-dentro">
+  <div class="wrap split rev">
+    <div>
+      <p class="eyebrow">Por dentro do viveiro</p>
+      <h2>Onde a sua lavoura <em>começa a ser formada.</em></h2>
+      <p class="lead">Um dos nossos viveiros internos com mudas recém-plantadas. Aqui cada muda cresce protegida sob tela de sombreamento, com acompanhamento da nossa equipe até estar pronta para ir ao campo.</p>
+      <ul class="points">
+        <li>Viveiros cobertos com tela de sombreamento</li>
+        <li>Produção acompanhada por engenheiro agrônomo responsável</li>
+        <li>Muda formada e uniforme no momento da retirada</li>
+      </ul>
+    </div>
+    <div>
+      <div class="vid v">
+        <video src="v/viveiro-interno.mp4" poster="v/viveiro-interno.jpg" preload="none" playsinline></video>
+        <button class="play" aria-label="Assistir ao vídeo do viveiro interno"><i><svg><use href="#play"/></svg></i><small>Mudas recém-plantadas</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADO NO CAMPO -->
+<section id="resultado" class="prova">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Resultado no campo</p>
+      <h2>Lavoura formada com mudas <em>do Viveiro Martinhago.</em></h2>
+      <p class="lead">Imagens gravadas na propriedade do cliente, com a lavoura já em florada de produção. Esse é o resultado que a muda certa entrega quando vai para o campo.</p>
+      <div class="kpis">
+        <div><b>17 mil</b><span>plantas na lavoura</span></div>
+        <div><b>1 ano</b><span>e 8 meses de lavoura</span></div>
+        <div><b>Florada</b><span>de produção</span></div>
+      </div>
+      <div class="quem"><span><b>Vagnaldo Sesquin</b><span>Produtor e cliente do Viveiro Martinhago</span></span></div>
+    </div>
+    <div>
+      <div class="vid v">
+        <video src="v/cliente.mp4" poster="v/cliente.jpg" preload="none" playsinline></video>
+        <button class="play" aria-label="Assistir ao vídeo da lavoura do cliente"><i><svg><use href="#play"/></svg></i><small>Lavoura do cliente</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="wrap">
+    <p class="eyebrow">Depoimentos</p>
+    <h2>Quem planta <em>recomenda.</em></h2>
+    <p class="lead">Clientes do Viveiro Martinhago contam, com as próprias palavras, como foi a experiência com as nossas mudas. Depoimentos gravados no nosso estande na 13ª Rondônia Rural Show Internacional, feira do agronegócio que recebe produtores do Brasil e do mundo todo.</p>
+    <span class="feira"><b>Rondônia Rural Show 2026</b> · 13ª edição</span>
+    <div class="deps">
+      <div class="dep">
+        <div class="vid v">
+          <video src="v/dep-irineu.mp4" poster="v/dep-irineu.jpg" preload="none" playsinline></video>
+          <button class="play" aria-label="Assistir ao depoimento de Irineu Krause"><i><svg><use href="#play"/></svg></i><small>Depoimento</small></button>
+        </div>
+        <div class="dep-name"><span class="q">“</span><span><b>Irineu Krause</b><span>Produtor e cliente do viveiro</span></span></div>
+      </div>
+      <div class="dep">
+        <div class="vid v">
+          <video src="v/dep-adilson.mp4" poster="v/dep-adilson.jpg" preload="none" playsinline></video>
+          <button class="play" aria-label="Assistir ao depoimento de Adilson Paulo"><i><svg><use href="#play"/></svg></i><small>Depoimento</small></button>
+        </div>
+        <div class="dep-name"><span class="q">“</span><span><b>Adilson Paulo</b><span>Produtor e cliente do viveiro</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="wrap">
+    <p class="eyebrow">Como trabalhamos</p>
+    <h2>Três formas de chegar <em>até a sua lavoura.</em></h2>
+    <p class="lead">Cada serviço é contratado separadamente, de acordo com a necessidade da sua propriedade.</p>
+    <div class="cards">
+      <div class="card"><h3>Venda de mudas</h3><p>Mudas clonais de alto vigor, padronizadas e prontas para o campo. Você retira no viveiro ou combina a logística com a gente.</p><span class="tag">Valor a consultar</span></div>
+      <div class="card"><h3>Entrega na propriedade</h3><p>As mudas chegam até você no prazo combinado, com o cuidado de transporte que elas precisam.</p><span class="tag">Serviço à parte &nbsp;|&nbsp; Valor a consultar</span></div>
+      <div class="card"><h3>Plantio na propriedade</h3><p>Nossa equipe faz o plantio com técnica, para a muda entrar no solo do jeito certo e pegar com força.</p><span class="tag">Serviço à parte &nbsp;|&nbsp; Valor a consultar</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGEM -->
+<section id="origem" class="origem">
+  <div class="wrap split">
+    <div><div class="origem-img" role="img" aria-label="Frutos vermelhos de café, flor e grãos torrados"></div></div>
+    <div>
+      <p class="eyebrow">Mudas de alta produtividade</p>
+      <h2>Produtividade começa na <em>escolha da origem.</em></h2>
+      <p class="lead">Cada saca colhida lá na frente depende da muda que vai para a cova hoje. Por isso o Viveiro Martinhago trabalha com genética de alta produção, procedência registrada e acompanhamento técnico em todas as etapas.</p>
+      <div class="pilares">
+        <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 3c0 6 10 6 10 12s-10 6-10 6"/><path d="M17 3c0 6-10 6-10 12s10 6 10 6"/><path d="M8.5 7h7M8.5 17h7M10 12h4"/></svg><b>Excelência</b><span>genética</span></div>
+        <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c.5-4.5 2.5-8 7-10"/><path d="M9 18c6.2 0 10.5-3.3 11-12v-2h-4.5C7.5 4 5 8 5 12c0 1 0 3 2 5h2"/></svg><b>Qualidade</b><span>e procedência</span></div>
+        <div class="pilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5zM12 11c0-3 2-5 5-5 0 3-2 5-5 5z"/><path d="M3 21h18"/></svg><b>Produtividade</b><span>no campo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLONES -->
+<section id="clones">
+  <div class="wrap">
+    <p class="eyebrow">Clones disponíveis</p>
+    <h2>Genética selecionada <em>para a sua lavoura.</em></h2>
+    <p class="lead">Trabalhamos com 9 clones de café. Você pode montar a sua lavoura com um ou mais clones, e o contrato registra a quantidade de cada um.</p>
+    <div class="clones">
+        <div class="clone"><small>Clone</small><b>025</b></div>
+        <div class="clone"><small>Clone</small><b>08</b></div>
+        <div class="clone"><small>Clone</small><b>156</b></div>
+        <div class="clone"><small>Clone</small><b>88</b></div>
+        <div class="clone"><small>Clone</small><b>04</b></div>
+        <div class="clone"><small>Clone</small><b>R22</b></div>
+        <div class="clone"><small>Clone</small><b>AS2</b></div>
+        <div class="clone"><small>Clone</small><b>G8</b></div>
+        <div class="clone"><small>Clone</small><b>LB15</b></div>
+    </div>
+    <div class="clones-cta">
+      <p>Ficou em dúvida sobre qual clone escolher? O escritório ajuda você a montar a combinação certa para a sua área.</p>
+      <a class="btn btn-green" href="https://wa.me/5569992220222?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20escolher%20os%20clones%20de%20caf%C3%A9%20para%20a%20minha%20lavoura." target="_blank" rel="noopener"><svg class="ic"><use href="#wa" fill="currentColor"/></svg>Escolher meus clones</a>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA -->
+<section id="calculadora" class="calc">
+  <div class="wrap">
+    <p class="eyebrow">Calculadora de mudas</p>
+    <h2>Quantas mudas cabem <em>na sua área?</em></h2>
+    <p class="lead">Informe o tamanho da área e o espaçamento. A conta sai na hora, e você já pode pedir o orçamento dessa quantidade pelo WhatsApp.</p>
+
+    <div class="calc-box">
+      <div>
+        <label class="lbl" for="area">1. Tamanho da área</label>
+        <div class="area-row"><input id="area" inputmode="decimal" autocomplete="off" placeholder="Ex.: 2,5" value="1"><span>hectares</span></div>
+
+        <p class="lbl" style="margin-top:26px">2. Espaçamento (rua × planta)</p>
+        <div class="esp" role="radiogroup" aria-label="Espaçamento">
+          <label><input type="radio" name="esp" value="3,0.70" checked><span class="opt"><b>3,0 × 0,70 m</b><small>4.761 plantas/ha</small><em>Recomendado</em></span></label>
+          <label><input type="radio" name="esp" value="3,0.80"><span class="opt"><b>3,0 × 0,80 m</b><small>4.166 plantas/ha</small><em>Recomendado</em></span></label>
+          <label><input type="radio" name="esp" value="2.5,0.80"><span class="opt"><b>2,5 × 0,80 m</b><small>5.000 plantas/ha</small></span></label>
+          <label><input type="radio" name="esp" value="3,1"><span class="opt"><b>3,0 × 1,00 m</b><small>3.333 plantas/ha</small></span></label>
+          <label class="full"><input type="radio" name="esp" value="outro"><span class="opt"><b>Outro espaçamento</b><small>Digite a distância entre ruas e entre plantas</small></span></label>
+        </div>
+        <div class="outro" id="outro">
+          <input id="rua" inputmode="decimal" placeholder="Rua (m)" aria-label="Distância entre ruas em metros">
+          <span>×</span>
+          <input id="planta" inputmode="decimal" placeholder="Planta (m)" aria-label="Distância entre plantas em metros">
+          <small>Exemplo: 3,5 × 0,60</small>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="res" id="res" aria-live="polite"></div>
+        <table class="tbl" style="margin-top:22px" aria-label="Tabela de plantas por hectare">
+          <thead><tr><th>Espaçamento</th><th>Plantas por hectare</th></tr></thead>
+          <tbody>
+            <tr><td>2,5 × 0,80 m</td><td>5.000</td></tr>
+            <tr class="rec"><td>3,0 × 0,70 m</td><td>4.761</td></tr>
+            <tr class="rec"><td>3,0 × 0,80 m</td><td>4.166</td></tr>
+            <tr><td>3,0 × 1,00 m</td><td>3.333</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANTIO -->
+<section id="plantio">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Plantio na prática</p>
+      <h2>Do viveiro para a cova, <em>sem complicação.</em></h2>
+      <p class="lead">Veja como é simples plantar a muda do Viveiro Martinhago. Ela chega formada, com raiz bem desenvolvida e pronta para o campo, o que facilita o trabalho da equipe e acelera o pegamento.</p>
+      <ul class="points">
+        <li>Muda padronizada, que deixa o plantio rápido e uniforme</li>
+        <li>Alto índice de pegamento: a necessidade de replantio é rara</li>
+        <li>Condução recomendada com duas hastes por planta</li>
+      </ul>
+    </div>
+    <div>
+      <div class="vid v">
+        <video src="v/plantio.mp4" poster="v/plantio.jpg" preload="none" playsinline></video>
+        <button class="play" aria-label="Assistir ao vídeo do plantio"><i><svg><use href="#play"/></svg></i><small>Facilidade no plantio</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARREGAMENTO -->
+<section id="carregamento">
+  <div class="wrap split rev">
+    <div>
+      <p class="eyebrow">Carregamento</p>
+      <h2>Mais mudas por viagem, <em>menos custo de frete.</em></h2>
+      <p class="lead">O jeito como as mudas são acomodadas aproveita cada espaço da carroceria. Um caminhão leva uma quantidade grande de mudas com segurança, e o produtor economiza em viagens e transporte.</p>
+      <ul class="points">
+        <li>Carregamento organizado e rápido no viveiro</li>
+        <li>Otimização de espaço: muito mais mudas na mesma carga</li>
+        <li>Mudas protegidas durante todo o trajeto</li>
+      </ul>
+    </div>
+    <div>
+      <div class="vid v">
+        <video src="v/carregamento.mp4" poster="v/carregamento.jpg" preload="none" playsinline></video>
+        <button class="play" aria-label="Assistir ao vídeo do carregamento"><i><svg><use href="#play"/></svg></i><small>Carregamento das mudas</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAFECAU -->
+<section id="cafecau">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Cafecau 2026</p>
+      <h2>Presentes na maior feira <em>do café e do cacau de Cacoal.</em></h2>
+      <p class="lead">O Viveiro Martinhago marcou presença na Cafecau 2026, recebendo produtores, técnicos e parceiros para falar de genética, qualidade e produtividade no campo.</p>
+      <a class="yt" href="https://www.youtube.com/watch?v=yp70T2mYT6Q" target="_blank" rel="noopener">
+        <span class="yi"><svg><use href="#play"/></svg></span>
+        <span><b>Assista à entrevista com o proprietário</b><span>A história e a técnica por trás de cada muda. Abre no YouTube.</span></span>
+      </a>
+    </div>
+    <div>
+      <div class="vid v">
+        <video src="v/cafecau.mp4" poster="v/cafecau.jpg" preload="none" playsinline></video>
+        <button class="play" aria-label="Assistir ao vídeo da Cafecau"><i><svg><use href="#play"/></svg></i><small>Nosso estande na Cafecau</small></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENCIAIS -->
+<section id="registro">
+  <div class="wrap">
+    <p class="eyebrow">Viveiro registrado</p>
+    <h2>Procedência que você <em>pode conferir.</em></h2>
+    <p class="lead">O Viveiro Martinhago é registrado no RENASEM, o Registro Nacional de Sementes e Mudas do Ministério da Agricultura, e conta com engenheiro agrônomo como responsável técnico pela produção.</p>
+    <div class="cred">
+      <div><small>Registro RENASEM</small><b>RO-01868/2021</b><span>Registro Nacional de Sementes e Mudas</span></div>
+      <div><small>Responsável técnico</small><b>Inaldon Pires de Oliveira</b><span>Engenheiro agrônomo</span></div>
+      <div><small>Empresa</small><b>Viveiro Martinhago Ltda.</b><span>CNPJ 47.186.733/0001-26</span></div>
+      <div><small>No mercado</small><b>8 anos</b><span>produzindo mudas clonais de café</span></div>
+      <div><small>Atendimento</small><b>Envio para todo o Brasil</b><span>com clientes em todo o país</span></div>
+      <div><small>Sede</small><b>Cacoal, Rondônia</b><span>maior viveiro de café clonal do estado</span></div>
+    </div>
+    <div class="selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>Comprar de viveiro registrado garante muda com origem rastreável, produção acompanhada por agrônomo e documentação em ordem para o transporte.</span></div>
+  </div>
+</section>
+
+<!-- COMO COMPRAR -->
+<section id="como-comprar">
+  <div class="wrap">
+    <p class="eyebrow">Como funciona a compra</p>
+    <h2>Do pedido à muda na sua carroceria, <em>passo a passo.</em></h2>
+    <p class="lead">Um processo simples, com contrato e documentação em dia, para você planejar o plantio com tranquilidade.</p>
+    <ol class="steps">
+      <li><h3>Defina a quantidade</h3><p>Use a calculadora acima ou fale com o escritório pelo WhatsApp. A gente ajuda a escolher o espaçamento e a quantidade certa para a sua área.</p></li>
+      <li><h3>Garanta o pedido com a entrada</h3><p>O pedido é confirmado com o pagamento da entrada por Pix. Com o comprovante conferido, o seu contrato é efetivado e as suas mudas ficam reservadas.</p></li>
+      <li><h3>Remessa definida em contrato</h3><p>O contrato traz a quantidade, os clones e o período de remessa e retirada, para você organizar o preparo da área com antecedência.</p></li>
+      <li><h3>Agende a retirada</h3><p>Informe a data e a placa do veículo com 2 dias de antecedência. As mudas podem ser retiradas em uma ou mais viagens.</p></li>
+      <li><h3>Documentação emitida</h3><p>Com os dados em mãos, emitimos a nota fiscal, a PTV e o DARE, para a sua carga viajar regularizada.</p></li>
+      <li><h3>Carregamento</h3><p>O saldo é pago antes do carregamento, por Pix ou em dinheiro. Nossa equipe carrega as mudas com cuidado e aproveitamento máximo do espaço.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- DOCUMENTAÇÃO -->
+<section id="documentacao">
+  <div class="wrap">
+    <p class="eyebrow">Compra segura</p>
+    <h2>Toda carga sai do viveiro <em>com documentação.</em></h2>
+    <p class="lead">Transporte de mudas exige documentos. Cuidamos disso para você seguir viagem tranquilo até a propriedade.</p>
+    <div class="docs">
+      <div class="doc"><span class="sig">NF</span><span><b>Nota fiscal</b><p>Emitida em cada carregamento, com a quantidade de mudas retirada.</p></span></div>
+      <div class="doc"><span class="sig">PTV</span><span><b>Permissão de Trânsito de Vegetais</b><p>Documento obrigatório para transportar mudas, emitido antes da sua carga sair.</p></span></div>
+      <div class="doc"><span class="sig">DARE</span><span><b>DARE</b><p>Guia de recolhimento estadual emitida junto com a documentação da carga.</p></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section id="duvidas">
+  <div class="wrap">
+    <p class="eyebrow">Dúvidas frequentes</p>
+    <h2>O que o produtor <em>mais pergunta.</em></h2>
+    <div class="faq">
+      <details><summary>Como eu garanto as minhas mudas?</summary><p>Com o pagamento da entrada por Pix. Assim que o comprovante é conferido, o contrato é efetivado e as mudas ficam reservadas para a remessa combinada.</p></details>
+      <details><summary>Quais são as formas de pagamento?</summary><p>Pix ou dinheiro. A entrada garante o pedido, e o saldo é pago antes do carregamento.</p></details>
+      <details><summary>Posso retirar as mudas em mais de uma viagem?</summary><p>Pode. Cada carregamento é agendado com o escritório, e a gente controla o que já foi retirado e o que falta.</p></details>
+      <details><summary>Com quanto tempo de antecedência eu agendo a retirada?</summary><p>Informe a data e a placa do veículo com pelo menos 2 dias de antecedência. Esse prazo é necessário para emitir a nota fiscal, a PTV e o DARE.</p></details>
+      <details><summary>Quantas mudas vêm em cada bandeja?</summary><p>Cada bandeja leva 50 mudas. A calculadora já mostra quantas bandejas a sua quantidade ocupa.</p></details>
+      <details><summary>Vocês entregam na propriedade?</summary><p>Sim. A entrega é um serviço contratado à parte. Fazemos envio para todo o Brasil e temos clientes em todo o país.</p></details>
+      <details><summary>O viveiro é registrado?</summary><p>Sim. O Viveiro Martinhago tem registro no RENASEM sob o número RO-01868/2021, e o responsável técnico é o engenheiro agrônomo Inaldon Pires de Oliveira.</p></details>
+      <details><summary>Quais clones vocês têm?</summary><p>Clones 025, 08, 156, 88, 04, R22, AS2, G8 e LB15. Você pode combinar mais de um clone no mesmo pedido.</p></details>
+      <details><summary>Qual espaçamento vocês recomendam?</summary><p>Os espaçamentos mais recomendados são 3,0 × 0,70 m ou 3,0 × 0,80 m, com condução de duas hastes por planta.</p></details>
+      <details><summary>Vou precisar comprar mudas a mais para replantio?</summary><p>Nossas mudas têm alto índice de pegamento, então a necessidade de replantio é rara. A quantidade da calculadora é a que você precisa.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao">
+  <div class="wrap">
+    <p class="eyebrow">Onde estamos</p>
+    <h2>Venha conhecer <em>o viveiro.</em></h2>
+    <div class="loc-card">
+      <div class="loc-vis" aria-hidden="true">
+        <svg class="road" viewBox="0 0 400 280" preserveAspectRatio="none"><path d="M-10 210 C 90 190, 150 120, 210 150 S 330 90, 420 70" fill="none" stroke="rgba(245,210,103,.35)" stroke-width="10" stroke-linecap="round"/><path d="M120 -10 C 140 80, 180 120, 200 150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6"/></svg>
+        <span class="pulse"></span>
+        <div class="pin"></div>
+      </div>
+      <div class="loc-body">
+        <h3>Viveiro Martinhago</h3>
+        <p>Cacoal, Rondônia</p>
+        <p style="color:var(--tx3);font-size:15px">Toque no botão para abrir a rota no Google Maps direto no seu celular.</p>
+        <a class="btn btn-green btn-block" href="https://maps.app.goo.gl/vyLYgmLrZ67qPHav8" target="_blank" rel="noopener"><svg class="ic"><use href="#pin"/></svg>Como chegar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="wrap">
+    <p class="eyebrow">Garanta sua safra</p>
+    <h2>Pronto para plantar <em>com a muda certa?</em></h2>
+    <p class="lead">As encomendas desta safra são limitadas. Fale com a gente pelo WhatsApp e escolha o que você precisa.</p>
+    <div class="ctas">
+      <a class="btn btn-green" href="https://wa.me/5569992220222?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido%20de%20mudas%20de%20caf%C3%A9%20clonal%20do%20Viveiro%20Martinhago." target="_blank" rel="noopener"><svg class="ic"><use href="#wa" fill="currentColor"/></svg>Fazer meu pedido</a>
+      <a class="btn btn-line" href="https://wa.me/5569992220222?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20entrega%20das%20mudas%20na%20minha%20propriedade.%20Podem%20me%20passar%20as%20informa%C3%A7%C3%B5es%3F" target="_blank" rel="noopener">Solicitar entrega</a>
+      <a class="btn btn-line" href="https://wa.me/5569992220222?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20plantio%20do%20Viveiro%20Martinhago." target="_blank" rel="noopener">Contratar plantio</a>
+    </div>
+    <div class="contacts">
+      <a class="ct" href="https://wa.me/5569992220222" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#wa" fill="currentColor"/></svg></span><span><small>Escritório do viveiro</small><b>(69) 9.9222-0222</b></span></a>
+      <a class="ct" href="https://wa.me/5569999651732" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#phone"/></svg></span><span><small>Rogerio</small><b>(69) 9.9965-1732</b></span></a>
+      <a class="ct" href="https://wa.me/5569999651257" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#phone"/></svg></span><span><small>Danilo</small><b>(69) 9.9965-1257</b></span></a>
+      <a class="ct" href="https://www.instagram.com/viveiromartinhago" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#ig"/></svg></span><span><small>Instagram</small><b>@viveiromartinhago</b></span></a>
+      <a class="ct" href="https://maps.app.goo.gl/vyLYgmLrZ67qPHav8" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#pin"/></svg></span><span><small>Localização</small><b>Cacoal, Rondônia</b></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="flogo" src="v/logo-claro.png" alt="Viveiro Martinhago" width="1200" height="693" loading="lazy">
+  <div class="fl">Viveiro Martinhago Ltda. &nbsp;·&nbsp; CNPJ 47.186.733/0001-26<br>RENASEM RO-01868/2021 &nbsp;·&nbsp; Resp. técnico: Eng. Agr. Inaldon Pires de Oliveira</div>
+</footer>
+
+<a class="float" href="https://wa.me/5569992220222?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Viveiro%20Martinhago." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+// vídeos: botão de play próprio; só um toca por vez
+document.querySelectorAll('.vid').forEach(function(box){
+  var v=box.querySelector('video'),b=box.querySelector('.play');
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.vid video').forEach(function(o){if(o!==v)o.pause()});
+    box.classList.add('playing');v.controls=true;var p=v.play();if(p&&p.catch)p.catch(function(){});
+  });
+  v.addEventListener('play',function(){box.classList.add('playing');document.querySelectorAll('.vid video').forEach(function(o){if(o!==v)o.pause()})});
+});
+
+// calculadora
+(function(){
+  var WA='5569992220222',BANDEJA=50;
+  var area=document.getElementById('area'),rua=document.getElementById('rua'),planta=document.getElementById('planta'),
+      outro=document.getElementById('outro'),res=document.getElementById('res');
+  var nf=function(n,d){return n.toLocaleString('pt-BR',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+  var num=function(s){s=String(s||'').trim().replace(/\s/g,'');if(s.indexOf(',')>-1)s=s.replace(/\./g,'').replace(',','.');var n=parseFloat(s);return isFinite(n)?n:0};
+  var fx=function(n,mn,mx){return n.toLocaleString('pt-BR',{minimumFractionDigits:mn,maximumFractionDigits:mx})};
+  function calc(){
+    var sel=document.querySelector('input[name=esp]:checked').value,a,b;
+    outro.classList.toggle('on',sel==='outro');
+    if(sel==='outro'){a=num(rua.value);b=num(planta.value)}else{var p=sel.split(',');a=+p[0];b=+p[1]}
+    var ha=num(area.value);
+    if(!(ha>0)){res.innerHTML='<div class="vazio">Digite o tamanho da área em hectares para ver o resultado.</div>';return}
+    if(!(a>0&&b>0)){res.innerHTML='<div class="vazio">Digite a distância entre ruas e entre plantas, em metros.</div>';return}
+    var porHa=Math.floor(10000/(a*b)+1e-9),total=Math.round(ha*porHa),band=Math.ceil(total/BANDEJA);
+    var esp=fx(a,1,2)+' × '+fx(b,2,2)+' m',areaTxt=fx(ha,0,2)+' ha';
+    var rec=(a===3&&(b===0.7||b===0.8));
+    var msg='Olá! Fiz a conta no site do Viveiro Martinhago. Tenho '+areaTxt+' e vou plantar no espaçamento '+esp+'. Preciso de cerca de '+nf(total)+' mudas. Quero um orçamento.';
+    res.innerHTML=
+      '<p class="lbl" style="margin-bottom:14px">Você vai precisar de</p>'+
+      '<div class="big">'+nf(total)+'</div><div class="unit">mudas para '+areaTxt+'</div>'+
+      '<div class="res-grid"><div><b>'+nf(porHa)+'</b><small>plantas por hectare</small></div><div><b>'+nf(band)+'</b><small>bandejas de '+BANDEJA+' mudas</small></div></div>'+
+      (rec?'':'<div class="dica" style="margin-top:12px"><svg><use href="#leaf"/></svg><span>Para a maioria das lavouras, o espaçamento mais recomendado é <b>3,0 × 0,70 m</b> ou <b>3,0 × 0,80 m</b>.</span></div>')+
+      '<div class="dica"><svg><use href="#leaf"/></svg><span><b>Conduza com duas hastes por planta.</b> Essa é a condução que recomendamos para tirar o máximo de produtividade da lavoura.</span></div>'+
+      '<div class="dica"><svg><use href="#leaf"/></svg><span><b>Mudas com alto índice de pegamento:</b> a necessidade de replantio é rara, então essa é a quantidade que você precisa comprar.</span></div>'+
+      '<a class="btn btn-green btn-block" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'"><svg class="ic"><use href="#wa" fill="currentColor"/></svg>Pedir orçamento dessa quantidade</a>';
+  }
+  [area,rua,planta].forEach(function(el){el.addEventListener('input',calc)});
+  document.querySelectorAll('input[name=esp]').forEach(function(r){r.addEventListener('change',function(){calc();if(r.value==='outro'&&r.checked)rua.focus()})});
+  calc();
+})();
+</script>
+</body>
+</html>
